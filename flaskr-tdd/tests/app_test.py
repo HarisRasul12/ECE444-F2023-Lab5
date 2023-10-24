@@ -3,6 +3,7 @@ import pytest
 from pathlib import Path
 
 from project.app import app, db
+from project import models
 import json
 
 
@@ -20,7 +21,6 @@ def client():
         db.create_all()  # setup
         yield app.test_client()  # tests run here
         db.drop_all()  # teardown
-
 
 def login(client, username, password):
     """Login helper function"""
@@ -82,3 +82,24 @@ def test_delete_message(client):
     rv = client.get('/delete/1')
     data = json.loads(rv.data)
     assert data["status"] == 1
+
+# def test_search(client):
+#     """Test the search function."""
+    
+#     # Add a sample post to the database for the search test - chat GPT help create this TEST CITATION USING THE SMAPLE POST, HELP DO THE ASSERT STATEMNETS
+#     sample_post = models.Post(title="Sample Post", text="This is a test post for searching.")
+#     db.session.add(sample_post)
+#     db.session.commit()
+    
+#     # Search for the post using a keyword
+#     response = client.get('/search/?query=test')
+    
+#     # Assert that the sample post appears in the search results
+#     assert b"Sample Post" in response.data
+#     assert b"This is a test post for searching." in response.data
+    
+#     # Search with a non-existent keyword
+#     response = client.get('/search/?query=nonexistent')
+    
+#     # Assert that the sample post doesn't appear for this search query
+#     assert b"Sample Post" not in response.data
