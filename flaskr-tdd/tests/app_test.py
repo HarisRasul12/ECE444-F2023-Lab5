@@ -79,7 +79,11 @@ def test_messages(client):
 
 def test_delete_message(client):
     """Ensure the messages are being deleted"""
-    rv = client.get('/delete/1')
+    rv = client.get("/delete/1")
+    data = json.loads(rv.data)
+    assert data["status"] == 0
+    login(client, app.config["USERNAME"], app.config["PASSWORD"])
+    rv = client.get("/delete/1")
     data = json.loads(rv.data)
     assert data["status"] == 1
 
@@ -103,3 +107,17 @@ def test_search(client):
     
     # Assert that the sample post doesn't appear for this search query
     assert b"Sample Post" not in response.data
+
+def test_login_required_decorator_not_logged_in(client):
+    """Ensure login_required stops users who are not logged in."""
+    rv = client.get("/test_login_required")
+    data = json.loads(rv.data)
+    assert data["status"] == 0
+    assert data["message"] == "Please log in."
+    assert rv.status_code == 401
+
+def test_login_required_decorator_logged_in(client):
+    """Ensure login_required allows users who are logged in."""
+    login(client, app.config["USERNAME"], app.config["PASSWORD"])
+    rv = client.get("/test_login_required")
+    assert b"You are logged in!" in rv.data
