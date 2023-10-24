@@ -22,6 +22,7 @@ def client():
         yield app.test_client()  # tests run here
         db.drop_all()  # teardown
 
+
 def login(client, username, password):
     """Login helper function"""
     return client.post(
@@ -77,6 +78,7 @@ def test_messages(client):
     assert b"&lt;Hello&gt;" in rv.data
     assert b"<strong>HTML</strong> allowed here" in rv.data
 
+
 def test_delete_message(client):
     """Ensure the messages are being deleted"""
     rv = client.get("/delete/1")
@@ -87,26 +89,30 @@ def test_delete_message(client):
     data = json.loads(rv.data)
     assert data["status"] == 1
 
+
 def test_search(client):
     """Test the search function."""
-    
+
     # Add a sample post to the database for the search test - chat GPT help create this TEST CITATION USING THE SMAPLE POST, HELP DO THE ASSERT STATEMNETS
-    sample_post = models.Post(title="Sample Post", text="This is a test post for searching.")
+    sample_post = models.Post(
+        title="Sample Post", text="This is a test post for searching."
+    )
     db.session.add(sample_post)
     db.session.commit()
-    
+
     # Search for the post using a keyword
-    response = client.get('/search/?query=test')
-    
+    response = client.get("/search/?query=test")
+
     # Assert that the sample post appears in the search results
     assert b"Sample Post" in response.data
     assert b"This is a test post for searching." in response.data
-    
+
     # Search with a non-existent keyword
-    response = client.get('/search/?query=nonexistent')
-    
+    response = client.get("/search/?query=nonexistent")
+
     # Assert that the sample post doesn't appear for this search query
     assert b"Sample Post" not in response.data
+
 
 def test_login_required_decorator_not_logged_in(client):
     """Ensure login_required stops users who are not logged in."""
@@ -115,6 +121,7 @@ def test_login_required_decorator_not_logged_in(client):
     assert data["status"] == 0
     assert data["message"] == "Please log in."
     assert rv.status_code == 401
+
 
 def test_login_required_decorator_logged_in(client):
     """Ensure login_required allows users who are logged in."""
