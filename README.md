@@ -17,8 +17,16 @@ This is a clone copy of https://github.com/mjhea0/flaskr-tdd
 
 # Activity 2: Project TDD Integration
 
-Please view the following links for the unit test I have added to our own app project Group 30:
+Please view the following links for the unit test I have added to our own app project Group 30 - used chat GPT for assiatnce as we use a different type of framework:
+
+Backend Test:
+
 [(https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/10551d804780b425c137f956a908bff4c6f93248/testingFolders/app_test.py#L194-L241)](https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/main/testingFolders/app_test.py#L194-L241)
+
+Front End Test:
+
+[https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/1496fe52472ce4c68d142af20403e202b2eb61b2/testingFolders/app_test.py#L253-L298](https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/main/testingFolders/app_test.py#L252-L298)
+
 
 
 # Activity 3: Benefits and Issues of TDD
