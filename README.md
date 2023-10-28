@@ -19,11 +19,11 @@ This is a clone copy of https://github.com/mjhea0/flaskr-tdd
 
 Please view the following links for the unit test I have added to our own app project Group 30 - used chat GPT for assiatnce as we use a different type of framework:
 
-Backend Test:
+Backend Test: The Function I made is - test_add_rating()
 
 [(https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/10551d804780b425c137f956a908bff4c6f93248/testingFolders/app_test.py#L194-L241)](https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/main/testingFolders/app_test.py#L194-L241)
 
-Front End Test:
+Front End Test: The Function I made is - test_react_webapp_render()
 
 [https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/1496fe52472ce4c68d142af20403e202b2eb61b2/testingFolders/app_test.py#L253-L298](https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/main/testingFolders/app_test.py#L252-L298)
 
