@@ -15,6 +15,11 @@ This is a clone copy of https://github.com/mjhea0/flaskr-tdd
 ![Activity 1](proof_of_login_to_delete.png)
 ![Activity 1](proof_of_deletion.png)
 
+# Activity 2: Project TDD Integration
+
+Please view the folloiwng link for the unit test I have added to our own app project Group 30:
+https://github.com/ECE444-2023Fall/project-1-web-application-design-group30-bytes/blob/dcce9dec7187af6250a788a831525d4d267b21b5/testingFolders/app_test.py#L14-L29
+
 
 # Activity 3: Benefits and Issues of TDD
 
